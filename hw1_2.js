@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+var fs = require('fs');
+var outfile = "primeNumber.txt";
 var primeNumbers = new Array();
 var initnum1 = 2;
 var initnum2 = 2;
@@ -17,7 +19,9 @@ while (primeNumbers.length<100){
 	initnum2=2;
 	initnum1++;
 }
-
-for (var i = 0; i < 100; i += 1) {
+var out =primeNumbers[0];
+for (var i = 1; i < 100; i += 1) {
+	out=out+','+primeNumbers[i]
     console.log(primeNumbers[i]);
 }
+fs.writeFileSync(outfile, out);  
